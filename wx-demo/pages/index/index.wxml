@@ -1,0 +1,11 @@
+<!--pages/index/index.wxml-->
+<view class="indexContainer">
+  <image src="{{userInfo.avatarUrl}}" class="avatarImg" wx:if="{{userInfo.avatarUrl}}"> </image>
+  <!-- 登陆授权，open-type是官方给的信息授权，然后拿到信息后使用bindgetuserinfo去操作信息，使用src="{{userInfo.avatarUrl}}"差值表达式语法来动态展示数据 -->
+  <button class="avatarImg but" open-type="getUserInfo" bindgetuserinfo="getInfo" wx:else> 获取头像昵称</button>
+  <text class="username">{{userInfo.nickName}}</text>
+  <!-- bindtap绑定事件，会捕获，目标，冒泡
+  catchtap绑定事件，可以阻止向外冒泡，帮我们执行event.stop.progagotion 
+catch加的是事件名-->
+  <text class="info" bindtap="handleClick">welcome to demo</text>
+</view>

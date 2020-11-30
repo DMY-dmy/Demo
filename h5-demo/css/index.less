@@ -1,0 +1,223 @@
+@font:375/10rem;
+
+// 测试根字体是否完成适配
+// #demo{
+//     width: 345/@font;
+//     height: 150/@font;
+//     margin: 15/@font;
+//     background-color: pink;
+// }
+
+html,body{
+    height: 100%;
+}
+
+#app{
+    // 默认块会继承宽度
+    height: 100%;
+    background-color: #ccc;
+
+    .content{
+        // 使用绝对定位默认不继承宽度
+        width: 100%;
+        // height: 100%;
+        // background-color: wheat;
+        // 添加绝对定位，让内容部分占据剩余空间,并且设置该内容所在区域
+        position: absolute;
+        // 设置该内容所在区域
+        bottom: 49/@font;
+        top: 0;
+        left: 0;
+       
+        &-item{
+            width: 100%;
+            height: 100%;
+            // background-color: white;
+            // 内容区定位
+            position: absolute;
+            left: 0;
+            // 父级距离下面有距离，所以这个要往下谊
+            top: 0;
+            display: none;
+             // 子元素超出来之后自动滚动条
+            overflow: auto;
+
+        }
+        &-item.active{
+            display: block;
+            background-color: #dcc;
+        }
+        &-item:nth-child(1){
+            .header{
+                height: 44/@font;
+                background-color: white;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                .left{
+                    // height: 100%;
+                    align-items: center;
+                    display: flex;
+                    .trigle{
+                        margin-left: 5/@font;
+                        width: 13/@font;
+                        height: 8/@font;
+                        background-image: url('../imgs/Triangle.png');
+                    }
+                    .city{
+                        font-family: PingFangSC-Regular;
+                        font-size: 14/@font;
+                        color: #333333;
+                        letter-spacing: 0;
+                    }
+                }
+                .center{
+                    font-family: PingFangSC-Regular;
+                    font-size: 18/@font;
+                    color: #262A32;
+                    letter-spacing: 0;
+                    line-height: 44/@font;
+
+                }
+                .right{
+                    width: 42/@font;
+                    height: 40/@font;
+                    border-radius: 2/@font; 
+                    background-image: url('../imgs/nav_filter.png');
+                }
+            }
+            .tab{
+                height: 44/@font;
+                background-color: #fff;
+                display: flex;
+                &-item{
+                    position: relative;
+                    width: 50%;
+                    font-family: PingFangSC-Regular;
+                    font-size: 16px;
+                    color: #999999;
+                    letter-spacing: 0;
+                    // 水平居中
+                    text-align: center;
+                    line-height: 44/@font;
+                    // display: flex;
+                    // flex-direction: column;
+                    // align-items: center;
+                    // // justify-content: space-between;
+                    
+                }
+                &-item.active::after{
+                    content: "";
+                    display: block;
+                    width: 20/@font;
+                    height:2/@font;
+                    background-color: #262A32;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    margin-left: -10/@font;
+                }
+            }
+        }
+    }
+    // 底部按钮
+    .tabbar{
+        // 使用绝对定位默认不继承宽度
+        width: 100%;
+        height: 49/@font;
+        background-color: white;
+        // 添加绝对定位，设置该内容所在区域
+        position: absolute;
+         // 设置该内容所在区域
+        bottom: 0;
+        // 弹性布局
+        display: flex;
+        // 两边留空,中间平均
+        justify-content: space-around;
+        // 两边不留空
+        // justify-content: space-between;
+        // 平均分配
+        // justify-content: space-evenly;
+        // 全部靠左，不留空
+        // justify-content: stretch;
+        // 全部紧挨，居中
+        // justify-content:center;
+
+        // 居中
+        align-items: center;
+
+        &-item{
+            &:nth-child(1){
+                .img{
+                    width: 25/@font;
+                    height: 25/@font;
+                    // background-color: royalblue;
+                    background-image: url('../imgs/tab_home_normal.png');
+                    // 因为不知道图片像素，所以给他100%
+                    background-size: 100%;
+                }
+                .img.active {
+                    background-image: url('../imgs/tab_home_selected.png');
+                }
+            }
+
+            &:nth-child(2){
+                .img{
+                    width: 25/@font;
+                    height: 25/@font;
+                    // background-color: royalblue;
+                    background-image: url('../imgs/tab_store_normal.png');
+                    // 因为不知道图片像素，所以给他100%
+                    background-size: 100%;
+                }
+                .img.active {
+                    background-image: url('../imgs/tab_store_selected.png');
+                }
+            }
+
+            &:nth-child(3){
+                .img{
+                    width: 25/@font;
+                    height: 25/@font;
+                    // background-color: royalblue;
+                    background-image: url('../imgs/tab_activity_normal.png');
+                    // 因为不知道图片像素，所以给他100%
+                    background-size: 100%;
+                }
+                // 交集选择器，图片active时
+                .img.active {
+                    background-image: url('../imgs/tab_activity_selected.png');
+                }
+            }
+
+            &:nth-child(4){
+                .img{
+                    width: 25/@font;
+                    height: 25/@font;
+                    // background-color: royalblue;
+                    background-image: url('../imgs/tab_mine_normal.png');
+                    // 因为不知道图片像素，所以给他100%
+                    background-size: 100%;
+                }
+                .img.active {
+                    background-image: url('../imgs/tab_mine_selected.png');
+                }
+            }
+            .text{
+                font-family: PingFangSC-Regular;
+                font-size: 12/@font;
+                // color: #999999;
+                letter-spacing: 0;
+            }
+            .text.active{
+                color: #FF5200;
+            }
+
+        }
+           
+           
+         
+
+
+        }
+    }

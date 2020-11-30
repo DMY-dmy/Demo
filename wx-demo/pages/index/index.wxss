@@ -1,0 +1,47 @@
+/* pages/index/index.wxss */
+/* page{
+  height: 100%;
+} */
+.indexContainer{
+  display: flex; 
+  /* 弹性布局 */
+  flex-direction: column;
+  /* 主轴方向，row column reverse 水平 垂直 */
+  align-items: center;
+  /* 左右多余空间分配 */
+  background:#abc;
+  /* 适口全部颜色，发现高度是被内容撑开，所以继承父元素高度 */
+  height: 100%;
+}
+/* dpr=物理像素/设备独立像素
+rpx=布局适口/750px
+当前是375px，所以目前1rpx=0.5px
+要设置宽为150px=》 150/0.5=300rpx
+所以基本就是1px=2rpx */
+
+.indexContainer .avatarImg{
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 50%;
+  margin: 100rpx 0;
+}
+
+.indexContainer .but{
+  /* 
+  align-items: center;
+  
+  justify-content: center; */
+  /* 居中文字 */
+  line-height: 300rpx;
+}
+
+.indexContainer .username{
+  font-size: 36rpx;
+  margin-bottom: 40rpx;
+}
+
+
+.indexContainer .info{
+  font-size: 32rpx;
+  color: greenyellow;
+}
